@@ -1,0 +1,21 @@
+%h1 Listing known_issues
+
+%table
+  %tr
+    %th Title
+    %th Content
+    %th
+    %th
+    %th
+
+  - @known_issues.each do |known_issue|
+    %tr
+      %td= known_issue.title
+      %td= known_issue.content
+      %td= link_to 'Show', known_issue
+      %td= link_to 'Edit', edit_known_issue_path(known_issue)
+      %td= link_to 'Destroy', known_issue, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Known issue', new_known_issue_path

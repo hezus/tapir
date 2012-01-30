@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyText
+  example: MyText
+  description: MyText
+  rest_object_id: 1
+  html_method: MyString
+
+two:
+  name: MyText
+  example: MyText
+  description: MyText
+  rest_object_id: 1
+  html_method: MyString

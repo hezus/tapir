@@ -1,0 +1,25 @@
+<h1>Listing rest_resource_params</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Optional</th>
+    <th>Description</th>
+    <th>Rest resource</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @rest_resource_params.each do |rest_resource_param| %>
+  <tr>
+    <td><%= rest_resource_param.name %></td>
+    <td><%= rest_resource_param.optional %></td>
+    <td><%= rest_resource_param.description %></td>
+    <td><%= rest_resource_param.rest_resource_id %></td>
+    <td><%= link_to 'Show', rest_resource_param %></td>
+    <td><%= link_to 'Edit', edit_rest_resource_param_path(rest_resource_param) %></td>
+    <td><%= link_to 'Destroy', rest_resource_param, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>

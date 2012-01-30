@@ -1,0 +1,74 @@
+%h1
+  = @rest_resource.name.html_safe
+
+%p
+  %strong
+    Description:
+  = @rest_resource.description
+
+- if @rest_resource.request.present?
+  %div.resource
+    %h2 Request example
+    %p
+      = markdown @rest_resource.request
+
+- if @rest_resource.steps.present?
+  %div.resource
+    %h2
+      Example
+    %ul
+      - @rest_resource.steps.each do |step|
+        %li
+          = link_to step.example.title << ' > ' << step.title, example_path(step.example) << '#' << step.title
+
+- if @rest_resource.show_data_types
+  %div.resource
+    %h2
+      Allowed Values:
+    %p
+      = link_to 'Data Types', datatypes_url
+
+- if @rest_resource.has_params
+  %div.resource
+    %table.condensed-table
+      %caption
+        %h2
+          Parameters
+        - @rest_resource.rest_resource_params.each do |param|
+          %tr
+            %td
+              = param.name
+              - if param.optional
+                .detail
+                  optional
+            %td
+              = markdown param.description
+              - param.rest_param_examples.each do |example|
+                .values
+                  %strong
+                    Example:
+                  = markdown example.example
+
+- if @rest_resource.request_payload.present?
+  %div.resource
+    %h2 Request payload example
+    .code_container
+      %p
+        = markdown @rest_resource.request_payload
+- if @rest_resource.response_json.present?
+  %div.resource
+    %h2 Response JSON
+    = raw coderay @rest_resource.response_json, :json
+- if @rest_resource.response_xml.present?
+  %div.resource
+    %h2 Response XML
+    = raw coderay @rest_resource.response_xml, :xml
+- if @rest_resource.known_issues.present?
+  %div.resource
+    %h2 Known Issues
+    - @rest_resource.known_issues.each do |known_issue|
+      .warning
+        %p
+          %strong
+            = markdown known_issue.title
+          = markdown known_issue.content

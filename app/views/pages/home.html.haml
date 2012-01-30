@@ -1,0 +1,47 @@
+%h1 Documentation
+%p
+  - if GeneralInfo.get_by_type(:version).present?
+    API Documentation for
+    = GeneralInfo.get_by_type(:version).last.content
+.row
+  .span8
+    - @infos = GeneralInfo.get_by_type(:info)
+    - if @infos.present?
+      %h2
+        Info
+      - @infos.each do |info|
+        .info
+          %p
+            = markdown info.content
+    - @prerequisites = GeneralInfo.get_by_type(:prerequisites)
+    - if @prerequisites.present?
+      %h2
+        Prerequisites
+      - @prerequisites.each do |prerequisite|
+        .warning
+          %p
+            = markdown prerequisite.content
+  .span8
+    - if @examples.present?
+      %h2
+        Examples
+      %ul
+        - @examples.each do |example|
+          %li
+            = link_to example.title, example
+    -if @objects.present?
+      %h2
+        REST API Resources
+      %ul
+        - @objects.each do |rest_object|
+          %li
+            = link_to rest_object.name, rest_objects_path + '#' << rest_object.name
+    -if @authentications.present?
+      %h2
+        Authentication
+      %p
+        Learn how to securely communicate to the application.
+      %ul
+        - @authentications.each do |authentication|
+          %li
+            = link_to authentication.title, authentication

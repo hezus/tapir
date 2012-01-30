@@ -1,0 +1,24 @@
+%h1
+  REST API resources
+
+- @rest_objects.each do |rest_object|
+  %a{name: "#{rest_object.name}"}
+  %div.resource
+    %table.condensed-table
+      %caption
+        %h2
+          = rest_object.name
+        %p
+          = rest_object.description
+      %thead
+        %tr
+          %th
+            Resource
+          %th.description
+            Description
+      - rest_object.rest_resources.each do |rest_resource|
+        %tr
+          %td
+            = link_to rest_resource.name.html_safe, rest_resource
+          %td
+            = rest_resource.description

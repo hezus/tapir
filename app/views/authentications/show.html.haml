@@ -1,0 +1,13 @@
+%p#notice= notice
+
+%h1
+  = @authentication.title
+%p
+  = markdown @authentication.content
+
+- if @authentication.steps.present?
+  - @authentication.steps.each do |step|
+    %h2
+      = step.title
+    %p
+      = markdown step.content

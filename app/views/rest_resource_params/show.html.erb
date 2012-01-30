@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @rest_resource_param.name %>
+</p>
+
+<p>
+  <b>Optional:</b>
+  <%= @rest_resource_param.optional %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @rest_resource_param.description %>
+</p>
+
+<p>
+  <b>Rest resource:</b>
+  <%= @rest_resource_param.rest_resource_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_rest_resource_param_path(@rest_resource_param) %> |
+<%= link_to 'Back', rest_resource_params_path %>

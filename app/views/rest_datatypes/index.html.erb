@@ -1,0 +1,21 @@
+<h1>Datatypes</h1>
+
+<div class="data simpleTable">
+  <table class="txtL">
+    <tr>
+      <th>Name</th>
+      <th>Example</th>
+      <th>Format</th>
+      <th>Description</th>
+    </tr>
+
+    <% @rest_datatypes.each do |rest_datatype| %>
+    <tr>
+      <td><%= rest_datatype.name %></td>
+      <td><%= rest_datatype.example %></td>
+      <td><%= rest_datatype.format %></td>
+      <td><%= rest_datatype.description %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>

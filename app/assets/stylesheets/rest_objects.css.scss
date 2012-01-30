@@ -1,0 +1,12 @@
+div.resource{
+    padding-top: 35px;
+    > table{
+        margin-bottom: 0;
+        th{
+            padding-top: 19px;
+        }
+        th.description{
+            width: 500px;
+        }
+    }
+}

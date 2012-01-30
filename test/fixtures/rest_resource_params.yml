@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyText
+  optional: false
+  description: MyText
+  rest_resource_id: 1
+
+two:
+  name: MyText
+  optional: false
+  description: MyText
+  rest_resource_id: 1

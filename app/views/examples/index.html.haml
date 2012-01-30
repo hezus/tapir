@@ -1,0 +1,6 @@
+%h1 Examples
+- @examples.each do |example|
+  %h2.small
+    = link_to example.title, example
+  %p
+    = example.content

@@ -1,0 +1,19 @@
+%h1
+  = @example.title
+%p
+  = markdown @example.content
+
+- @example.steps.each do |step|
+  .resource
+    %a{name: "#{step.title}"}
+    %h2
+      = step.title
+    %p
+      = markdown step.content
+    - if step.rest_resources.present?
+      %h4 Related resouces
+      - step.rest_resources.each do |rest_resource|
+        .note
+          = link_to rest_resource.name.html_safe, rest_resource
+
+

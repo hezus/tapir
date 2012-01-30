@@ -1,0 +1,17 @@
+.data.simpleTable
+  %table.condensed-table
+    %caption
+      %h2
+        = @rest_object.name
+    %thead
+      %tr
+        %th
+          Resource
+        %th.description
+          Description
+    - @rest_object.rest_resources.each do |rest_resource|
+      %tr
+        %td
+          = link_to rest_resource.name.html_safe, rest_resource
+        %td
+          = rest_resource.description

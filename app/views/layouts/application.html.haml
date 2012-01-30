@@ -1,0 +1,46 @@
+!!!
+%html
+  %head
+    %title=yield :title
+    = stylesheet_link_tag 'application'
+    = csrf_meta_tag
+  %body
+    = yield :body_start
+    .topbar
+      .topbar-inner
+        .container
+          = link_to (GeneralInfo.get_by_type(:system_name).last.content << ' <span>T</span>API<span>R</span>').html_safe, root_path, {class: 'brand'}
+          %ul.nav
+            %li
+              = link_to 'Examples', examples_path
+            %li
+              = link_to 'Authentication', authentications_path
+            %li
+              = link_to 'REST Resources', rest_objects_path
+            %li
+              = link_to 'Datatypes', datatypes_path
+          %ul.secondary-nav
+            - if current_user.present?
+              %li
+                %p
+                  = current_user.email
+              %li
+                = link_to "Logout", destroy_user_session_path, :method => :delete
+              %li
+                = link_to "Admin", rails_admin_path, :method => :get
+            - else
+              = link_to "Login", rails_admin_path, :method => :get
+    %section
+      .container
+        = yield
+    %footer.footer
+      .container
+        %p
+          Tapir is a opensource API documentation tool and hosted on
+          %a{:href => "http://github.com/hezus/tapir"} GitHub
+    = yield :modal
+    = javascript_include_tag 'application'
+    :javascript
+      $(document).ready(function(){
+          prettyPrint()
+      });
