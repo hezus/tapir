@@ -1,21 +1,6 @@
-%h1 Listing authentications
-
-%table
-  %tr
-    %th Title
-    %th Content
-    %th
-    %th
-    %th
-
-  - @authentications.each do |authentication|
-    %tr
-      %td= authentication.title
-      %td= authentication.content
-      %td= link_to 'Show', authentication
-      %td= link_to 'Edit', edit_authentication_path(authentication)
-      %td= link_to 'Destroy', authentication, :confirm => 'Are you sure?', :method => :delete
-
-%br
-
-= link_to 'New Authentication', new_authentication_path
+%h1 Examples
+- @authentications.each do |authentication|
+  %h2.small
+    = link_to authentication.title, authentication
+  %p
+    = markdown authentication.content

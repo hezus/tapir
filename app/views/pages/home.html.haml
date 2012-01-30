@@ -25,13 +25,17 @@
     - if @examples.present?
       %h2
         Examples
+      %p
+        Examples on how to use the API
       %ul
         - @examples.each do |example|
           %li
             = link_to example.title, example
     -if @objects.present?
       %h2
-        REST API Resources
+        REST API resources
+      %p
+        Available REST resources
       %ul
         - @objects.each do |rest_object|
           %li

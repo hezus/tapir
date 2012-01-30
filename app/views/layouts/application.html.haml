@@ -36,8 +36,7 @@
     %footer.footer
       .container
         %p
-          Tapir is a opensource API documentation tool and hosted on
-          %a{:href => "http://github.com/hezus/tapir"} GitHub
+          Tapir is a opensource API documentation tool and hosted on #{link_to "GitHub", "http://github.com/hezus/tapir"}. Design is based on the #{link_to "Twitter API", "https://dev.twitter.com/docs/api"}.
     = yield :modal
     = javascript_include_tag 'application'
     :javascript
