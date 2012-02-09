@@ -22,7 +22,7 @@ end
 
 group :production do
   gem 'therubyracer'
-  gem 'pg'
+  gem 'mysql2'
 end
 
 #html templates
