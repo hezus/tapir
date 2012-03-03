@@ -6,10 +6,7 @@ module ApplicationHelper
 
   # Process text with Markdown.
   def markdown(text)
-    puts text
-    html = BlueCloth::new(text).to_html.html_safe
-    puts html
-    html
+    BlueCloth::new(text).to_html.html_safe
   end
 
   def coderay(text, type)
