@@ -12,14 +12,18 @@
           - if GeneralInfo.get_by_type(:system_name).last.present?
             = link_to (GeneralInfo.get_by_type(:system_name).last.content << ' <span>T</span>API<span>R</span>').html_safe, root_path, {class: 'brand'}
           %ul.nav
-            %li
-              = link_to 'Examples', examples_path
-            %li
-              = link_to 'Authentication', authentications_path
-            %li
-              = link_to 'REST Resources', rest_objects_path
-            %li
-              = link_to 'Datatypes', datatypes_path
+            - if Example.last.present?
+              %li
+                = link_to 'Examples', examples_path
+            - if Authentication.last.present?
+              %li
+                = link_to 'Authentication', authentications_path
+            - if RestObject.last.present?
+              %li
+                = link_to 'REST Resources', rest_objects_path
+            - if RestDatatype.last.present?
+              %li
+                = link_to 'Datatypes', datatypes_path
           %ul.secondary-nav
             - if current_user.present?
               %li
