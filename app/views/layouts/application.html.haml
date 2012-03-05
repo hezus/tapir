@@ -9,7 +9,8 @@
     .topbar
       .topbar-inner
         .container
-          = link_to (GeneralInfo.get_by_type(:system_name).last.content << ' <span>T</span>API<span>R</span>').html_safe, root_path, {class: 'brand'}
+          - if GeneralInfo.get_by_type(:system_name).last.present?
+            = link_to (GeneralInfo.get_by_type(:system_name).last.content << ' <span>T</span>API<span>R</span>').html_safe, root_path, {class: 'brand'}
           %ul.nav
             %li
               = link_to 'Examples', examples_path
